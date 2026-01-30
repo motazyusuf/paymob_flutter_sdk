@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - paymob_flutter_sdk (1.0.0):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - paymob_flutter_sdk (from `.symlinks/plugins/paymob_flutter_sdk/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  paymob_flutter_sdk:
+    :path: ".symlinks/plugins/paymob_flutter_sdk/ios"
+
+SPEC CHECKSUMS:
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  paymob_flutter_sdk: 981cc8f08556c304e3664e1b3c5bab48865ed751
+
+PODFILE CHECKSUM: 251cb053df7158f337c0712f2ab29f4e0fa474ce
+
+COCOAPODS: 1.16.2
