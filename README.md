@@ -528,12 +528,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - The Flutter team for the amazing framework
 - All contributors who help improve this package
 
-  | Type   | Number / PIN        | Expiry | CVV | OTP    |
-|--------|----------------------|---------|-----|--------|
-| Card   | 5123 4567 8901 2346 | 12/25   | 123 | -      |
-| Wallet | 01010101010         | -       | -   | 123456 |
-
-
 ## 📈 Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for a list of changes.
