@@ -29,7 +29,7 @@ A comprehensive Flutter plugin for integrating Paymob payment gateway with nativ
 
 ## 🔐 Getting Your Paymob Credentials
 
-1. **Sign up** at [Paymob Dashboard](https://accept.paymob.com/)
+1. **Sign up** at Paymob Dashboard
 2. **Get your API keys**:
    - Public Key: `egy_pk_test_...`
    - Secret Key: `egy_sk_test_...`
