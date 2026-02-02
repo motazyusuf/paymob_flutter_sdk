@@ -64,7 +64,7 @@ The plugin supports multiple currencies including:
 - AED (UAE Dirham)
 - And more...
 
-Check [Paymob documentation](https://accept.paymob.com/docs) for the complete list.
+Refer back to Paymob documentation for the complete list.
 
 ## 📱 Platform-Specific Notes
 
@@ -95,7 +95,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📞 Support
 
 - **Issues**: [GitHub Issues](https://github.com/motazyusuf/paymob_flutter_sdk/issues)
-- **Paymob Documentation**: [Paymob Docs](https://developers.paymob.com/paymob-docs/getting-started/overview)
 - **Email**: motazyusuf@gmail.com / moataz.medhat@intcore.com
 
 ## 🙏 Acknowledgments
