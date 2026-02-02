@@ -1,128 +1,119 @@
-```markdown
-# 💳 Paymob Flutter SDK – Seamless Native Payment Integration
+# Paymob Flutter SDK
 
-**Paymob Flutter SDK** is a professional wrapper around the **Paymob V2 Native SDKs** designed to **simplify** payment processing in Flutter apps. It provides **secure transaction handling, customizable native UI, and real-time status updates**—all while maintaining high performance on both Android and iOS.
+[![pub package](https://img.shields.io/pub/v/paymob_flutter_sdk.svg)](https://pub.dev/packages/paymob_flutter_sdk)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Unit Test](https://img.shields.io/badge/Unit%20Test-Passing-green)
+[![Creator](https://img.shields.io/badge/Creator-Moataz%20Yusuf-blue)](https://www.linkedin.com/in/moataz-yusuf-4266a3251/)
 
-With this SDK, you can integrate **Card Payments, Wallets, and Installments** with minimal code, ensuring a **scalable and secure** checkout experience for your users.
+A comprehensive Flutter plugin for integrating Paymob payment gateway with native Android and iOS SDK support. Accept payments seamlessly and securly in your Flutter applications with full customization support.
 
-[![Pub Package](https://img.shields.io/badge/Pub%20get-paymob__flutter__sdk-blue)](https://pub.dev/packages/paymob_flutter_sdk)
-![Build Status](https://img.shields.io/badge/Build-Passing-teal)
-[![Creator](https://img.shields.io/badge/Creator-Moataz%20Yusuf-blue)](https://github.com/motazyusuf)
+## ✨ Features
 
----
+- 🚀 **Easy Integration** - Simple API with minimal setup required
+- 📱 **Native SDKs** - Uses official Paymob Android and iOS SDKs under the hood
+- 🎨 **Customizable UI** - Customize button colors, app name, and more
+- 💳 **Save Card Feature** - Optional card saving functionality
+- 🔒 **Secure Payments** - Industry-standard security with PCI compliance
+- ✅ **Type-Safe Results** - Strongly typed payment result handling
+- 🌍 **Multi-Currency** - Support for multiple currencies (EGP, USD, etc.)
+- 📊 **Comprehensive Error Handling** - Clear error messages and states
+- 🔄 **Null Safety** - Fully migrated to null-safe Dart
+- 🛡️ **Backend Security Mode** - Optional secure backend integration to protect your secret keys
 
-## ⚡ Quick Start: Secure Payment Integration
+## 🎯 Supported Platforms
 
-Initialize the service and launch the native payment UI in just a few lines of code.
+| Platform | Minimum Version | Status |
+|----------|----------------|--------|
+| Android  | API 23 (6.0)   | ✅ Supported |
+| iOS      | 13.0           | ✅ Supported |
 
-```dart
-// 1. Initialize the service singleton
-final _paymobService = PaymobService();
+## 🔐 Getting Your Paymob Credentials
 
-// 2. Obtain credentials (Ideally generated from your backend for security)
-final credentials = await _paymobService.createPaymentIntention(
-  useBackend: true, // Set to true to use a clientSecret from your server
-  publicKey: "YOUR_PUBLIC_KEY",
-  clientSecret: "CLIENT_SECRET_FROM_BACKEND", 
-);
+1. **Sign up** at [Paymob Dashboard](https://accept.paymob.com/)
+2. **Get your API keys**:
+   - Public Key: `egy_pk_test_...`
+   - Secret Key: `egy_sk_test_...`
+3. **Get Integration ID**:
+   - Go to Settings → Payment Integrations
+   - Copy your integration ID
 
-// 3. Launch the Native SDK UI
-PaymobPaymentResult result = await _paymobService.payWithPaymob(
-  publicKey: credentials['public_key']!,
-  clientSecret: credentials['client_secret']!,
-  customization: PaymobCustomization(
-    appName: "My Flutter Store",
-    buttonBackgroundColor: Colors.blueAccent, // Custom button color
-    buttonTextColor: Colors.white,
-  ),
-);
+### Test Mode
 
-// 4. Handle the payment result
-if (result.isSuccessful) {
-  // Payment succeeded! Access transaction details here
-  print("Transaction ID: ${result.transactionDetails?['id']}");
-} else if (result.isRejected) {
-  print("Payment was declined by the issuer");
-}
+- No real money is charged in test mode
+- For testing, use test credentials:
 
-```
+| Type   | Number / PIN        | Expiry | CVV | OTP    |
+| ------ | ------------------- | ------ | --- | ------ |
+| Card   | 5123 4567 8901 2346 | 12/30  | 123 | -      |
+| Wallet | 01010101010         | -      | -   | 123456 |
 
----
 
-## 🔥 Why Choose Paymob Flutter SDK?
+### Production Mode
 
-This plugin bridges the gap between Flutter and Paymob’s native capabilities, offering a robust solution for developers in the MENA region.
+1. Switch to live API keys
+2. Use live integration IDs
+3. Complete Paymob verification process
+4. **Always use backend mode** (`useBackend: true`)
 
-✅ **Native UI Support** – Uses native Android Activities and iOS ViewControllers for the most reliable payment experience.
+## 🌍 Supported Currencies
 
-✅ **Hybrid Security** – Supports secure **Backend-to-Backend** intentions to keep your Secret Keys safe.
+The plugin supports multiple currencies including:
+- EGP (Egyptian Pound)
+- USD (US Dollar)
+- SAR (Saudi Riyal)
+- AED (UAE Dirham)
+- And more...
 
-✅ **Highly Customizable** – Match the payment screens to your brand with custom colors and app names.
+Check [Paymob documentation](https://accept.paymob.com/docs) for the complete list.
 
-✅ **Comprehensive Callbacks** – Detailed `PaymobPaymentResult` providing success, rejection, or pending states.
+## 📱 Platform-Specific Notes
 
-✅ **Automated Setup** – Android Maven repositories and iOS XCFrameworks are handled automatically during build.
+### Android
+- The plugin uses Paymob Android SDK 1.6.9
+- Supports Android 6.0 (API 23) and above
+- Works with AndroidX
 
----
+### iOS
+- The plugin uses PaymobSDK 1.0.2
+- Supports iOS 13.0 and above
+- Requires Swift 5.0+
 
-## 🛠 Platform Configuration
+## 📄 License
 
-To ensure compatibility with the latest native Paymob V2 SDKs, please apply the following settings:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### **Android**
+## 🤝 Contributing
 
-* **Java Version:** Your project must use **Java 17**.
-* **Compile SDK:** `35`
-* **Min SDK:** `23`
-* **Note:** The plugin automatically injects the required Maven repository from the Paymob Android repo.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### **iOS**
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-* **Minimum Deployment Target:** `13.0`
-* **Swift Version:** `5.0`
-* **Pod Install:** The `PaymobSDK.xcframework` is automatically downloaded and linked during the `pod install` process.
+## 📞 Support
 
----
+- **Issues**: [GitHub Issues](https://github.com/motazyusuf/paymob_flutter_sdk/issues)
+- **Paymob Documentation**: [Paymob Docs](https://accept.paymob.com/docs)
+- **Email**: motazyusuf@gmail.com / moataz.medhat@intcore.com
 
-## 📖 Feature Breakdown
+## 🙏 Acknowledgments
 
-### 🎨 UI Customization
+- Paymob for providing the payment gateway service
+- The Flutter team for the amazing framework
+- All contributors who help improve this package
+  
+Special Thanks to [Mahmoud ElShennawy](https://github.com/dev-mahmoud-elshenawy)
+For The Continuous Support And Mentorship.
 
-You can pass a `PaymobCustomization` object to the `payWithPaymob` method to tailor the interface:
+## 📈 Changelog
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `appName` | `String?` | Title displayed at the top of the payment screen. |
-| `buttonBackgroundColor` | `Color?` | The background color of the main "Pay" button. |
-| `buttonTextColor` | `Color?` | The color of the text inside the "Pay" button. |
-| `showSaveCard` | `bool?` | Whether to show the checkbox to save card data. |
-| `saveCardDefault` | `bool?` | Whether the "Save Card" checkbox is checked by default. |
+See [CHANGELOG.md](CHANGELOG.md) for a list of changes.
 
-### 🛡 Security First
 
-The service includes a built-in safety check. Using `useBackend: false` is available for rapid prototyping but triggers a warning in logs, as it requires exposing your **Secret Key** within the app.
+Made with ❤️ by **Moataz Medhat Yusuf**  
+🔗 **[LinkedIn](https://www.linkedin.com/in/moataz-yusuf-4266a3251/)**  
+💻 **[GitHub](https://github.com/motazyusuf)**  
 
-> **⚠️ WARNING:** Never use legacy mode (insecure) in production. Always generate payment intentions on your server-side.
-
----
-
-## ❗ Report Issues & Contribute
-
-🔍 **Found a bug? Have a feature request?** Report issues on the **[GitHub Issues page](https://www.google.com/search?q=https://github.com/motazyusuf/paymob_flutter_sdk/issues)**.
-
-When reporting an issue, please provide:
-
-* A clear description of the issue.
-* **Steps to reproduce** (if applicable).
-* The **Paymob version** in use.
-* Relevant **code snippets or screenshots**.
-
----
-
-## 👤 Created By
-
-Made with ❤️ by **Moataz Yusuf** 🔗 **[GitHub](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/motazyusuf)** 📧 **[Email](mailto:motazyusuf@gmail.com)** 📜 **License:** MIT – See **[LICENSE](https://www.google.com/search?q=https://github.com/motazyusuf/paymob_flutter_sdk/blob/master/LICENSE)**.
-
-```
-
-```
+**Star ⭐ this repo if you find it useful!**
